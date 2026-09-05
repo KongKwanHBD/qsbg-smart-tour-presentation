@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -19,10 +19,17 @@
 
   <style>
     :root {
-      --emerald-dark: #0a1912;
-      --emerald-mint: #52b788;
-      --accent-glow: #22c55e;
-      --tech-navy: #0b2545;
+      --dark-bg: #07150e;
+      --card-glass: rgba(14, 38, 28, 0.85);
+      --mint-glow: #52b788;
+      --mint-bright: #6ee7b7;
+      --mint-light: #a7f3d0;
+      --gold-accent: #f59e0b;
+      --sky-blue: #38bdf8;
+      --text-white: #ffffff;
+      --text-body: #e2e8f0;
+      --text-muted: #94a3b8;
+      --border-glow: rgba(82, 183, 136, 0.45);
     }
 
     * {
@@ -31,47 +38,234 @@
 
     body {
       font-family: 'Prompt', 'Sarabun', sans-serif;
-      background-color: var(--emerald-dark);
-      color: #ffffff;
+      background-color: var(--dark-bg);
+      background-image: url('images/dark_topographic_bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: var(--text-body);
       margin: 0;
       padding: 0;
-      overflow: hidden;
     }
 
     .reveal {
-      background-color: var(--emerald-dark);
+      font-family: 'Prompt', 'Sarabun', sans-serif;
+      font-size: 24px;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
       font-family: 'Prompt', sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: normal;
     }
 
-    .reveal .slides {
-      text-align: center;
+    /* Custom Header */
+    .slide-header {
+      text-align: left;
+      margin-bottom: 24px;
+      position: relative;
     }
 
-    .reveal .slides section {
-      padding: 0 !important;
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      height: 100% !important;
+    .header-badge {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--mint-bright);
+      background: rgba(18, 48, 36, 0.9);
+      border: 1.5px solid var(--border-glow);
+      padding: 5px 16px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px rgba(82, 183, 136, 0.15);
     }
 
-    .slide-wrapper {
+    .header-title {
+      font-size: 38px !important;
+      color: var(--text-white) !important;
+      margin: 4px 0 4px 0 !important;
+      line-height: 1.25 !important;
+      font-weight: 800 !important;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .header-subtitle {
+      font-size: 19px;
+      color: var(--mint-light);
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* Frosted Glass Cards */
+    .cards-row {
+      display: flex;
+      gap: 20px;
+      justify-content: stretch;
+      align-items: stretch;
       width: 100%;
-      height: 100%;
+    }
+
+    .glass-card {
+      background: var(--card-glass);
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      padding: 24px 26px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+      border: 1.5px solid var(--border-glow);
+      text-align: left;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .glass-card:hover {
+      border-color: var(--mint-bright);
+      transform: translateY(-2px);
+    }
+
+    .card-num {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 10px;
+      color: var(--mint-bright);
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+
+    .card-sub {
+      font-size: 13px;
+      color: var(--mint-light);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .glass-card ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    .glass-card li {
+      margin-bottom: 10px;
+    }
+
+    /* 4-Tier Architecture Box */
+    .arch-layer {
+      background: var(--card-glass);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 16px 24px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      background: var(--emerald-dark);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+      border-left: 6px solid var(--mint-glow);
+      border-top: 1px solid var(--border-glow);
+      border-right: 1px solid var(--border-glow);
+      border-bottom: 1px solid var(--border-glow);
+      text-align: left;
     }
 
-    .slide-img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-      border-radius: 8px;
+    .arch-badge-col {
+      width: 320px;
+      flex-shrink: 0;
+    }
+
+    .arch-layer-title {
+      font-weight: 700;
+      font-size: 19px;
+      color: var(--mint-bright);
+    }
+
+    .arch-layer-sub {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .arch-items {
+      font-size: 17px;
+      color: var(--text-body);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* Stepper Flow Cards */
+    .step-card {
+      background: var(--card-glass);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 20px 16px;
+      border: 1.5px solid var(--border-glow);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      flex: 1;
+      text-align: left;
+      position: relative;
+    }
+
+    .step-badge {
+      background: rgba(82, 183, 136, 0.2);
+      border: 1px solid var(--mint-glow);
+      color: var(--mint-bright);
+      font-weight: 800;
+      font-size: 13.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .step-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 4px;
+    }
+
+    .step-sub {
+      font-size: 12px;
+      color: var(--mint-light);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .step-desc {
+      font-size: 15.5px;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    /* 2 Columns Grid */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      text-align: left;
+    }
+
+    /* Tag pill */
+    .tag-pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      background: rgba(82, 183, 136, 0.25);
+      border: 1px solid var(--mint-glow);
+      color: var(--mint-bright);
     }
 
     /* Floating Navigation Controls */
@@ -84,60 +278,49 @@
       display: flex;
       gap: 12px;
       align-items: center;
-      background: rgba(10, 25, 18, 0.88);
-      padding: 8px 20px;
+      background: rgba(7, 21, 14, 0.9);
+      padding: 8px 22px;
       border-radius: 30px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
       font-size: 14px;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(82, 183, 136, 0.4);
+      backdrop-filter: blur(14px);
+      border: 1.5px solid var(--border-glow);
     }
 
     .nav-btn {
-      background: linear-gradient(135deg, #2d6a4f, #1b4332);
+      background: linear-gradient(135deg, #1b4332, #2d6a4f);
       color: white;
-      border: 1px solid rgba(82, 183, 136, 0.5);
-      padding: 7px 16px;
+      border: 1px solid var(--border-glow);
+      padding: 6px 16px;
       border-radius: 20px;
       cursor: pointer;
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 600;
       font-family: 'Prompt', sans-serif;
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.25s ease;
+      transition: all 0.2s ease;
     }
 
     .nav-btn:hover {
-      background: linear-gradient(135deg, #52b788, #2d6a4f);
-      box-shadow: 0 0 12px rgba(82, 183, 136, 0.5);
-      transform: translateY(-1px);
+      background: linear-gradient(135deg, #2d6a4f, #52b788);
+      box-shadow: 0 0 12px rgba(82, 183, 136, 0.4);
     }
 
     .nav-info {
-      color: #a7f3d0;
-      font-size: 13px;
+      color: var(--mint-light);
+      font-size: 13.5px;
       font-weight: 500;
       margin: 0 6px;
     }
 
     .slide-counter {
-      color: #6ee7b7;
+      color: var(--mint-bright);
       font-weight: 700;
       font-size: 14px;
       min-width: 55px;
       text-align: center;
-    }
-
-    /* Progress bar glow */
-    .reveal .progress {
-      height: 4px;
-      color: var(--accent-glow);
-    }
-
-    .reveal .progress span {
-      background: linear-gradient(90deg, #2d6a4f, #52b788, #22c55e);
     }
   </style>
 </head>
@@ -146,131 +329,621 @@
   <!-- Floating Navigation Controls -->
   <div class="nav-bar">
     <button class="nav-btn" onclick="Reveal.prev()"><i class="fa-solid fa-chevron-left"></i> ย้อนกลับ</button>
-    <span class="slide-counter" id="slide-num">1 / 12</span>
+    <span class="slide-counter" id="slide-num">1 / 13</span>
     <button class="nav-btn" onclick="Reveal.next()">ถัดไป <i class="fa-solid fa-chevron-right"></i></button>
-    <span class="nav-info">| กด <b>'F'</b> ขยายเต็มจอ | กด <b>'S'</b> เปิดสคริปต์พูด</span>
+    <span class="nav-info">| กด <b>'F'</b> เต็มจอ | กด <b>'S'</b> เปิดสคริปต์พูด</span>
   </div>
 
   <div class="reveal">
     <div class="slides">
 
-      <!-- SLIDE 1 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_01.jpg" alt="Slide 1" class="slide-img">
+      <!-- SLIDE 1: Cover (Dark Emerald + Real EV Fleet Photo) -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div style="display: flex; gap: 30px; align-items: center; height: 100%; padding: 20px;">
+          <div class="glass-card" style="flex: 1.3; padding: 36px 40px;">
+            <div class="header-badge"><i class="fa-solid fa-leaf"></i> SMART & GREEN BOTANICAL GARDEN | QSBG INNOVATION</div>
+            <h1 class="header-title" style="font-size: 44px !important; margin: 12px 0 !important;">Smart Electric Tour Bus<br>Management System Design</h1>
+            <h3 style="font-size: 22px; color: var(--mint-light); margin-bottom: 18px; font-weight: 600;">ยกระดับการท่องเที่ยวสีเขียวสู่อัจฉริยะ เพื่อสวนพฤกษศาสตร์ระดับโลก</h3>
+            <p style="font-size: 17px; line-height: 1.7; color: var(--text-body); margin-bottom: 24px;">
+              การผสานสองหัวใจสำคัญ: ยานยนต์ไฟฟ้า (EV 100%) พลังงานสะอาด ไร้ควัน ไร้เสียง ควบคู่กับ Smart Tourism Platform (e-Ticket, Live GPS Tracking, Smart Queue Balancing และ Real-time Analytics) สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ จังหวัดเชียงใหม่
+            </p>
+            <div style="display: flex; gap: 20px; font-size: 15px; color: var(--gold-accent); border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; font-weight: 600;">
+              <span><i class="fa-solid fa-calendar-check"></i> แผนพัฒนา 3 ระยะ (9 เดือน)</span>
+              <span><i class="fa-solid fa-car-battery"></i> Zero Emission 100%</span>
+              <span><i class="fa-solid fa-tree"></i> พื้นที่ 6,500 ไร่</span>
+            </div>
+          </div>
+          <div class="glass-card" style="flex: 0.95; padding: 18px; text-align: center;">
+            <img src="images/ev_fleet_3_carts.jpg" alt="รถนำเที่ยวไฟฟ้าจริง 3 คัน" style="width: 100%; border-radius: 12px; display: block; margin-bottom: 12px; border: 1.5px solid var(--border-glow); box-shadow: 0 8px 25px rgba(0,0,0,0.5);">
+            <div style="font-size: 15px; color: var(--mint-light); line-height: 1.5; text-align: left;">
+              <b style="color: var(--mint-bright);"><i class="fa-solid fa-camera"></i> ภาพรถจริงประจำโครงการ:</b> รถนำเที่ยวไฟฟ้า 3 คัน ให้บริการวนรอบ 6 สถานีหลักในพื้นที่ 6,500 ไร่
+            </div>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าปก (1.0 นาที):<br>กราบเรียนท่านประธาน ท่านคณะกรรมการ และผู้ทรงคุณวุฒิทุกท่านครับ<br>ในวันนี้ผมมีความยินดีอย่างยิ่งที่จะนำเสนอ 'Smart Electric Tour Bus Management System Design: โครงการออกแบบและพัฒนาระบบจัดการรถนำเที่ยวไฟฟ้า สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ จังหวัดเชียงใหม่'<br><br>โครงการนี้เป็นการผสานสองหัวใจสำคัญเข้าด้วยกัน นั่นคือ 'การท่องเที่ยวสีเขียว (Green Tourism)' ด้วยยานยนต์ไฟฟ้า EV 100% ควบคู่กับ 'Smart Tourism Platform' เพื่อยกระดับประสบการณ์การท่องเที่ยวเชิงนิเวศและการอนุรักษ์ธรรมชาติในพื้นที่ 6,500 ไร่ สู่มาตรฐานสวนพฤกษศาสตร์ระดับโลกอย่างยั่งยืนครับ
+          สคริปต์พูดหน้าปก (1 นาที):
+          กราบเรียนท่านประธาน ท่านคณะกรรมการ และผู้ทรงคุณวุฒิทุกท่านครับ
+          ในวันนี้ผมมีความยินดีอย่างยิ่งที่จะนำเสนอ "Smart Electric Tour Bus Management System Design: โครงการออกแบบและพัฒนาระบบจัดการรถนำเที่ยวไฟฟ้า สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ จังหวัดเชียงใหม่"
+          ภาพที่ท่านเห็นทางขวามือคือรถนำเที่ยวไฟฟ้าจริงทั้ง 3 คันที่จะนำมาให้บริการในพื้นที่ 6,500 ไร่ โครงการนี้คือการผสานการท่องเที่ยวสีเขียว Green EV 100% ควบคู่กับ Smart Tourism Platform ยกระดับสวนพฤกษศาสตร์สู่ระดับสากลครับ
         </aside>
       </section>
 
-      <!-- SLIDE 2 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_02.jpg" alt="Slide 2" class="slide-img">
+      <!-- SLIDE 2: Context & Challenges (3 Glass Cards) -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Context & Challenges</span>
+          <h2 class="header-title">ที่มา ปัญหา และความจำเป็นของโครงการ</h2>
+          <p class="header-subtitle">ความท้าทายในการบริหารจัดการและการให้บริการนักท่องเที่ยวในปัจจุบัน</p>
+        </div>
+        <div class="cards-row">
+          <div class="glass-card">
+            <div class="card-num">01</div>
+            <div class="card-title">พื้นที่กว้างใหญ่ & รถจำกัด</div>
+            <div class="card-sub">Physical & Capacity Bottleneck</div>
+            <ul>
+              <li>พื้นที่สวนกว้างขวางถึง <b>6,500 ไร่</b> มีความลาดชันสูง</li>
+              <li>จุดท่องเที่ยวสำคัญกระจายตัว: Canopy Walkway, กลุ่มเรือนกระจก, พิพิธภัณฑ์ธรรมชาติวิทยา</li>
+              <li>เดิมใช้รถเครื่องยนต์สันดาปเพียง <b>2 คัน</b> ไม่เพียงพอต่อปริมาณนักท่องเที่ยว</li>
+              <li>มีเสียงดังและปล่อยควันไอเสียรบกวนบรรยากาศธรรมชาติ</li>
+            </ul>
+          </div>
+          <div class="glass-card" style="border-color: var(--sky-blue);">
+            <div class="card-num" style="color: var(--sky-blue);">02</div>
+            <div class="card-title">ไร้ระบบติดตามและคิวสะสม</div>
+            <div class="card-sub" style="color: var(--sky-blue);">Lack of Real-time Visibility</div>
+            <ul>
+              <li>นักท่องเที่ยว<b>ไม่ทราบเวลาที่รถจะมาถึงสถานี (No ETA)</b></li>
+              <li>เกิดการรอคอยอย่างไร้จุดหมาย และความแออัดสะสมหนาแน่นในบางสถานี</li>
+              <li>คนขับและเจ้าหน้าที่ไม่ทราบจำนวนผู้โดยสารที่รอในสถานีถัดไป</li>
+              <li>การจัดคิวขึ้นรถยังเป็นแบบดั้งเดิม ขาดความเป็นระเบียบและโปร่งใส</li>
+            </ul>
+          </div>
+          <div class="glass-card" style="border-color: var(--gold-accent);">
+            <div class="card-num" style="color: var(--gold-accent);">03</div>
+            <div class="card-title">ขาดข้อมูลสถิติเพื่อวางแผน</div>
+            <div class="card-sub" style="color: var(--gold-accent);">No Data-Driven Analytics</div>
+            <ul>
+              <li>ขาดระบบจัดเก็บข้อมูลการใช้บริการแบบดิจิทัล</li>
+              <li>ไม่มีข้อมูลเชิงพื้นที่ (Spatial Data) ว่าจุดใดมีความหนาแน่นสูงสุดในแต่ละช่วงเวลา</li>
+              <li>ผู้บริหารไม่สามารถนำข้อมูลมาวิเคราะห์เพื่อจัดสรรทรัพยากรได้อย่างตรงจุด</li>
+              <li>ระบบตั๋วและการตรวจสอบยังไม่เชื่อมโยงกับระบบหลังบ้าน</li>
+            </ul>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 2 : บริบทและปัญหาเดิม (1.5 นาที):<br>สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ อำเภอแม่ริม มีพื้นที่กว้างใหญ่ถึง 6,500 ไร่ มีแลนด์มาร์กสำคัญระดับประเทศ เช่น Canopy Walkway ทางเดินเรือนยอดไม้, กลุ่มเรือนกระจกเฉลิมพระเกียรติ และพิพิธภัณฑ์ธรรมชาติวิทยา<br><br>แต่ในปัจจุบันเราเผชิญปัญหาหลัก 3 ประการ:<br>1. มลพิษและเสียง: เดิมใช้รถนำเที่ยวเครื่องยนต์สันดาปเพียง 2 คัน มีเสียงดังและปล่อยควันไอเสียรบกวนบรรยากาศธรรมชาติ<br>2. ขาดระบบติดตาม: นักท่องเที่ยวไม่ทราบเวลารถที่จะมาถึงสถานี (No ETA) ทำให้ต้องรอคอยอย่างไร้จุดหมาย เกิดความแออัดสะสม<br>3. ขาดฐานข้อมูลเชิงระบบ: ผู้บริหารไม่มีข้อมูลสถิติดิจิทัลเชิงพื้นที่ ทำให้ไม่สามารถวิเคราะห์และวางแผนการเดินรถได้อย่างตรงจุดครับ
+          สคริปต์พูดหน้าที่ 2 : บริบทและปัญหาเดิม (1.5 นาที):
+          สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ มีพื้นที่กว้างถึง 6,500 ไร่ แต่เดิมเรามีข้อจำกัด 3 ข้อ: 1. รถสันดาปเดิม 2 คัน มีเสียงดังและปล่อยควันไอเสีย 2. นักท่องเที่ยวไม่ทราบเวลาที่รถจะมาถึงสถานี (No ETA) ทำให้รอคอยอย่างไร้จุดหมาย และ 3. ขาดข้อมูลสถิติดิจิทัลเชิงพื้นที่ ทำให้ผู้บริหารวางแผนได้ยาก นี่จึงเป็นที่มาของโครงการนี้ครับ
         </aside>
       </section>
 
-      <!-- SLIDE 3 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_03.jpg" alt="Slide 3" class="slide-img">
+      <!-- SLIDE 3: Vision & Objectives (Real Photo of Cart Side) -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Strategy & Vision</span>
+          <h2 class="header-title">วิสัยทัศน์และวัตถุประสงค์โครงการ</h2>
+          <p class="header-subtitle">มุ่งสู่สวนพฤกษศาสตร์อัจฉริยะ เป็นมิตรกับสิ่งแวดล้อม และยั่งยืน</p>
+        </div>
+        <div class="grid-2col">
+          <div class="glass-card" style="border-left: 6px solid var(--mint-bright); padding: 26px 28px;">
+            <h4 style="color: var(--mint-bright); font-size: 24px; margin-bottom: 20px;"><i class="fa-solid fa-bullseye"></i> วัตถุประสงค์หลัก (Core Objectives)</h4>
+            <div style="margin-bottom: 20px;">
+              <b style="color: var(--text-white); font-size: 19px; display: block; margin-bottom: 5px;">1. ศึกษาวิเคราะห์และออกแบบระบบสารสนเทศ</b>
+              <p style="font-size: 17px; color: var(--text-body); margin: 0; line-height: 1.6;">วิเคราะห์ ออกแบบระบบฐานข้อมูล และสถาปัตยกรรมสารสนเทศรถนำเที่ยวไฟฟ้าเพื่อการบริหารจัดการที่มีประสิทธิภาพสูงสุด</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+              <b style="color: var(--text-white); font-size: 19px; display: block; margin-bottom: 5px;">2. พัฒนาแอปพลิเคชันจัดการรถนำเที่ยวครบวงจร</b>
+              <p style="font-size: 17px; color: var(--text-body); margin: 0; line-height: 1.6;">ครอบคลุมทั้งนักท่องเที่ยว (Web/Mobile App), คนขับรถ (Driver App), จุดบริการ (Kiosk) และผู้บริหาร (Dashboard)</p>
+            </div>
+            <div>
+              <b style="color: var(--text-white); font-size: 19px; display: block; margin-bottom: 5px;">3. บูรณาการข้อมูลการท่องเที่ยวเชิงพื้นที่</b>
+              <p style="font-size: 17px; color: var(--text-body); margin: 0; line-height: 1.6;">เชื่อมโยงเส้นทาง จุดท่องเที่ยว แนะนำพรรณไม้แบบ Geofences และจัดทำรายงานวิเคราะห์แบบเรียลไทม์</p>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div class="glass-card" style="flex-direction: row; gap: 18px; align-items: center; padding: 16px 20px;">
+              <img src="images/ev_cart_side.jpg" alt="รถนำเที่ยวไฟฟ้าจริง" style="width: 220px; height: 125px; object-fit: cover; border-radius: 10px; border: 1.5px solid var(--border-glow); flex-shrink: 0;">
+              <div style="font-size: 15px; text-align: left; line-height: 1.55; color: var(--text-body);">
+                <b style="color: var(--mint-bright); font-size: 18px; display: block; margin-bottom: 4px;"><i class="fa-solid fa-bolt"></i> รถนำเที่ยวไฟฟ้า (EV Tram)</b>
+                ยานพาหนะเปิดโล่งเพื่อการชมธรรมชาติ ขับเคลื่อนด้วยพลังงานสะอาด 100% ไร้ควัน ไร้เสียง พร้อมติดตั้งแท็บเล็ตดิจิทัลประจำรถ
+              </div>
+            </div>
+
+            <div class="glass-card" style="border-left: 6px solid var(--gold-accent); margin: 0; padding: 22px 24px;">
+              <h4 style="color: var(--gold-accent); font-size: 21px; margin-bottom: 14px;"><i class="fa-solid fa-seedling"></i> เป้าหมายเชิงยุทธศาสตร์และความยั่งยืน</h4>
+              <div style="margin-bottom: 12px;">
+                <b style="color: var(--mint-light); font-size: 17px; display: block; margin-bottom: 2px;">1. Green EV Transition (Zero Emission)</b>
+                <p style="font-size: 15.5px; color: var(--text-body); margin: 0; line-height: 1.5;">ปรับเปลี่ยนสู่รถพลังงานไฟฟ้า 100% เป็นมิตรต่อสิ่งแวดล้อมและพรรณไม้</p>
+              </div>
+              <div style="margin-bottom: 12px;">
+                <b style="color: var(--mint-light); font-size: 17px; display: block; margin-bottom: 2px;">2. Smart Digital Tourism Experience</b>
+                <p style="font-size: 15.5px; color: var(--text-body); margin: 0; line-height: 1.5;">นักท่องเที่ยวเข้าถึงข้อมูลสะดวกรวดเร็วผ่าน e-Ticket, Live Tracking และแจ้งเตือนคิว</p>
+              </div>
+              <div>
+                <b style="color: var(--mint-light); font-size: 17px; display: block; margin-bottom: 2px;">3. Data-Driven Spatial Management</b>
+                <p style="font-size: 15.5px; color: var(--text-body); margin: 0; line-height: 1.5;">ผู้บริหารมี Real-time Dashboard เห็นภาพรวมการเดินรถและความหนาแน่นทันที</p>
+              </div>
+            </div>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 3 : วิสัยทัศน์และวัตถุประสงค์ (1.5 นาที):<br>วิสัยทัศน์ของโครงการคือ 'เปลี่ยนผ่านสู่ รถนำเที่ยวไฟฟ้า (EV) เพื่อพลังงานสะอาด พร้อมยกระดับสู่ Smart Tourism Ecosystem อย่างครบวงจร'<br><br>โดยกำหนด 2 วัตถุประสงค์หลัก:<br>1. ออกแบบระบบ (System Design): วิเคราะห์และออกแบบระบบจัดการข้อมูลสารสนเทศรถนำเที่ยวไฟฟ้า เพื่อการบริหารจัดการเชิงพื้นที่ที่แม่นยำและมีประสิทธิภาพสูงสุด<br>2. พัฒนาแพลตฟอร์ม (App Development): พัฒนาแอปพลิเคชันเพื่อเพิ่มความสะดวกสบายแบบไร้รอยต่อ (Seamless Experience) ให้แก่นักท่องเที่ยว เจ้าหน้าที่ และผู้บริหารครับ
+          สคริปต์พูดหน้าที่ 3 : วิสัยทัศน์และวัตถุประสงค์ (1.5 นาที):
+          วิสัยทัศน์คือเปลี่ยนผ่านสู่รถนำเที่ยวไฟฟ้า EV 100% พร้อมสร้าง Smart Tourism Ecosystem อย่างครบวงจร โดยมี 2 วัตถุประสงค์หลัก คือ 1. ออกแบบระบบสารสนเทศ และ 2. พัฒนาแอปพลิเคชันจัดการรถนำเที่ยวครบวงจร ภาพทางขวามือคือตัวรถ EV จริงที่เปิดโล่งสัมผัสธรรมชาติ ไร้ควัน ไร้เสียง พร้อมติดตั้งแท็บเล็ตดิจิทัลครับ
         </aside>
       </section>
 
-      <!-- SLIDE 4 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_04.jpg" alt="Slide 4" class="slide-img">
+      <!-- SLIDE 4: System Architecture (4-Tier Glass Layers) -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Architecture</span>
+          <h2 class="header-title">สถาปัตยกรรมระบบโดยรวม (4-Tier Architecture)</h2>
+          <p class="header-subtitle">โครงสร้างระบบเชื่อมโยงระหว่างผู้ใช้ ระบบประมวลผล IoT และฐานข้อมูลอย่างมีเสถียรภาพ</p>
+        </div>
+        
+        <div class="arch-layer" style="border-left-color: var(--sky-blue);">
+          <div class="arch-badge-col">
+            <div class="arch-layer-title"><i class="fa-solid fa-mobile-screen"></i> LAYER 1: Frontend Channels</div>
+            <div class="arch-layer-sub">Omnichannel Access</div>
+          </div>
+          <div class="arch-items">
+            <b>• Web App</b> (จองตั๋วออนไลน์ล่วงหน้า) &nbsp;|&nbsp; <b>• Mobile App</b> (iOS / Android สำหรับนักท่องเที่ยว)<br>
+            <b>• Kiosk Touchscreen</b> (ตู้ซื้อตั๋วประจำสถานี) &nbsp;|&nbsp; <b>• Driver App</b> (แอปคนขับบน Tablet ประจำรถ)
+          </div>
+        </div>
+
+        <div class="arch-layer" style="border-left-color: var(--mint-glow);">
+          <div class="arch-badge-col">
+            <div class="arch-layer-title"><i class="fa-solid fa-server"></i> LAYER 2: API Gateway & Services</div>
+            <div class="arch-layer-sub">Core Business Logic</div>
+          </div>
+          <div class="arch-items">
+            <b>• API Gateway:</b> Authentication, Request Routing, Rate Limiting<br>
+            <b>• Microservices:</b> Ticket Service (ออกตั๋ว), Bus Tracking Service (ตำแหน่ง/ETA), Station Service (6 สถานี), Payment Service
+          </div>
+        </div>
+
+        <div class="arch-layer" style="border-left-color: var(--mint-bright);">
+          <div class="arch-badge-col">
+            <div class="arch-layer-title"><i class="fa-solid fa-tower-broadcast"></i> LAYER 3: Realtime & IoT Layer</div>
+            <div class="arch-layer-sub">Live Data Streaming</div>
+          </div>
+          <div class="arch-items">
+            <b>• GPS Units บนรถ 3 คัน:</b> ส่งพิกัดตำแหน่ง Real-time ทุก 5 วินาที ผ่าน 4G<br>
+            <b>• QR / RFID Scanner:</b> สแกนตรวจตั๋ว Check-in ขึ้นรถทันทีใน 1 วินาที &nbsp;|&nbsp; <b>• WebSocket Server:</b> สตรีมพิกัดและคิวสดๆ
+          </div>
+        </div>
+
+        <div class="arch-layer" style="border-left-color: var(--gold-accent);">
+          <div class="arch-badge-col">
+            <div class="arch-layer-title"><i class="fa-solid fa-database"></i> LAYER 4: Database & Storage</div>
+            <div class="arch-layer-sub">High Reliability Storage</div>
+          </div>
+          <div class="arch-items">
+            <b>• PostgreSQL:</b> ข้อมูลหลัก (ผู้ใช้, ตั๋ว, รายได้) &nbsp;|&nbsp; <b>• Redis:</b> In-memory Cache & Queue<br>
+            <b>• TimescaleDB:</b> Time-series DB บันทึกพิกัด GPS นับล้านเรคคอร์ดโดยไม่หน่วง &nbsp;|&nbsp; <b>• Cloud File Storage</b>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 4 : ภาพรวมสถาปัตยกรรมระบบ (1.5 นาที):<br>เราได้วางสถาปัตยกรรมระบบเป็น 4 ชั้น (4-Tier Architecture) ตามมาตรฐานสากล:<br>- ชั้นที่ 1 Frontend / ช่องทางลูกค้า: รองรับ Web App (จองออนไลน์), Mobile App (iOS/Android), ตู้ Kiosk ประจำสถานี และ Driver App บนแท็บเล็ตคนขับ<br>- ชั้นที่ 2 API Gateway & Backend Services: แยกบริการอย่างเป็นสัดส่วน ทั้ง Ticket Service, Bus Tracking, Station Service สำหรับ 6 สถานี และ Payment Service<br>- ชั้นที่ 3 Realtime & IoT Layer: เชื่อมโยงอุปกรณ์ GPS บนรถ EV ทั้ง 3 คัน ส่งพิกัดผ่าน WebSocket ทุก 5 วินาที พร้อมระบบ QR/RFID Scanner<br>- ชั้นที่ 4 Database & Storage: ใช้ PostgreSQL เป็นฐานข้อมูลหลัก และใช้ TimescaleDB สำหรับจัดเก็บพิกัด Time-series GPS นับล้านเรคคอร์ดได้อย่างรวดเร็วครับ
+          สคริปต์พูดหน้าที่ 4 : สถาปัตยกรรมระบบ 4 ชั้น (1.5 นาที):
+          เราออกแบบระบบเป็น 4 ชั้น: Layer 1 Frontend รองรับ Web, Mobile, Kiosk และแท็บเล็ตคนขับ Layer 2 Backend แยก Microservices ชัดเจน Layer 3 Realtime & IoT สตรีมพิกัด GPS จากรถ 3 คัน ทุก 5 วินาที และ Layer 4 Data แยก PostgreSQL และ TimescaleDB สำหรับ Big Data พิกัด GPS ครับ
         </aside>
       </section>
 
-      <!-- SLIDE 5 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_05.jpg" alt="Slide 5" class="slide-img">
+      <!-- SLIDE 5: e-Ticket Flow (5 Steps) -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">e-Ticket Flow</span>
+          <h2 class="header-title">e-Ticket Flow — กระบวนการตั้งแต่เลือกซื้อจนขึ้นรถ</h2>
+          <p class="header-subtitle">กระบวนการจำหน่ายตั๋ว ออกตั๋ว และการตรวจตั๋วขึ้นรถ 5 ขั้นตอนแบบไร้รอยต่อ</p>
+        </div>
+        
+        <div class="cards-row" style="margin-bottom: 20px;">
+          <div class="step-card">
+            <div class="step-badge">STEP 01</div>
+            <div class="step-title">เลือกซื้อตั๋ว</div>
+            <div class="step-sub">Omnichannel Selection</div>
+            <div class="step-desc">ซื้อผ่าน Mobile App, เว็บไซต์ล่วงหน้า หรือตู้ Kiosk หน้าสถานี</div>
+          </div>
+          <div class="step-card">
+            <div class="step-badge">STEP 02</div>
+            <div class="step-title">ชำระเงิน</div>
+            <div class="step-sub">Contactless Payment</div>
+            <div class="step-desc">สแกน PromptPay QR EMVCo ทุกธนาคาร, บัตร หรือเงินสดที่ Kiosk</div>
+          </div>
+          <div class="step-card">
+            <div class="step-badge">STEP 03</div>
+            <div class="step-title">สร้าง e-Ticket</div>
+            <div class="step-sub">Dynamic QR Generator</div>
+            <div class="step-desc">ระบบสร้าง Dynamic One-Time QR Code พร้อมบันทึกลง Database ทันที</div>
+          </div>
+          <div class="step-card">
+            <div class="step-badge">STEP 04</div>
+            <div class="step-title">แสดงตั๋วผู้โดยสาร</div>
+            <div class="step-sub">Passenger Display</div>
+            <div class="step-desc">แสดง QR ผ่านหน้าจอมือถือ, Wallet หรือพิมพ์สลิปจากตู้ Kiosk</div>
+          </div>
+          <div class="step-card">
+            <div class="step-badge">STEP 05</div>
+            <div class="step-title">สแกน Check-in</div>
+            <div class="step-sub">Driver Tablet Scan</div>
+            <div class="step-desc">คนขับสแกนตรวจตั๋ว ตัดสิทธิ์ทันที ป้องกันการใช้ซ้ำ อัปเดตคิว Real-time</div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="border-left: 7px solid var(--gold-accent); padding: 18px 24px;">
+          <div style="font-weight: 700; font-size: 18px; color: var(--gold-accent); margin-bottom: 6px;">
+            <i class="fa-solid fa-qrcode"></i> กฎการใช้งาน One-Time QR Code และการตรวจสอบความถูกต้อง
+          </div>
+          <div style="font-size: 16px; color: var(--text-body); line-height: 1.6;">
+            • ตั๋ว 1 ใบ = สิทธิ์เดินทาง 1 ครั้ง เมื่อสแกนแล้วสถานะจะปรับเป็น 'USED' ในฐานข้อมูลทันที ป้องกันการแคปภาพหน้าจอส่งต่อหรือนำกลับมาใช้ซ้ำ 100%<br>
+            • อัปเดตข้อมูลผู้โดยสารขึ้นรถแบบสดๆ เข้าสู่ Smart Queue Balancing เพื่อตัดโควตาที่นั่งว่างของรถคันนั้นแบบ Real-time
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 5 : ประสบการณ์การซื้อตั๋วอัจฉริยะ (1.5 นาที):<br>ระบบจำหน่ายตั๋ว e-Ticket แบ่งเป็น 4 ขั้นตอนที่สะดวกและปลอดภัย:<br>1. เลือกและซื้อ (Select): นักท่องเที่ยวเลือกประเภทตั๋วผ่าน Web, Mobile App หรือกดซื้อที่ตู้ Kiosk หน้าสถานี<br>2. ชำระเงิน (Pay): รองรับ QR PromptPay ตามมาตรฐาน EMVCo ทุกธนาคาร, บัตรเครดิต หรือเงินสดที่ Kiosk<br>3. ออก e-Ticket (Receive): ระบบสร้าง One-Time QR Code ส่งเข้า App, SMS หรือสลิปพิมพ์ พร้อมบันทึกสถานะ 'ยังไม่ใช้'<br>4. สแกนขึ้นรถ (Ride): คนขับใช้แท็บเล็ตประจำรถสแกน QR Code ตรวจสอบสิทธิ์ใน 1 วินาที ตัดสิทธิ์เป็น 'ใช้แล้ว' ทันที ป้องกันการนำกลับมาใช้ซ้ำ 100% ครับ
+          สคริปต์พูดหน้าที่ 5 : e-Ticket Flow 5 ขั้นตอน (1.5 นาที):
+          กระบวนการซื้อตั๋ว 5 ขั้นตอน: 1. เลือกซื้อตั๋วผ่านแอป/เว็บ/Kiosk 2. ชำระเงินผ่าน PromptPay QR EMVCo 3. ระบบสร้าง One-Time QR Code 4. ผู้โดยสารเปิดตั๋วบนมือถือ และ 5. สแกน Check-in บนรถ คนขับใช้แท็บเล็ตตรวจ 1 วินาที ตัดสิทธิ์ทันที ป้องกันการนำกลับมาใช้ซ้ำ 100% ครับ
         </aside>
       </section>
 
-      <!-- SLIDE 6 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_06.jpg" alt="Slide 6" class="slide-img">
+      <!-- SLIDE 6: Payment Gateway Integration Flow -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Payment Gateway</span>
+          <h2 class="header-title">Payment Gateway Integration Flow — สถาปัตยกรรมระบบชำระเงิน</h2>
+          <p class="header-subtitle">กระบวนการเชื่อมต่อระบบชำระเงิน ตรวจสอบความถูกต้องผ่าน Webhook Callback และความปลอดภัย</p>
+        </div>
+        
+        <div class="cards-row" style="margin-bottom: 20px;">
+          <div class="step-card" style="border-top: 5px solid var(--sky-blue);">
+            <div class="step-badge" style="background: rgba(56, 189, 248, 0.2); color: var(--sky-blue); border-color: var(--sky-blue);">STEP 1</div>
+            <div class="step-title">สั่งซื้อตั๋ว</div>
+            <div class="step-sub">Mobile / Kiosk App</div>
+            <div class="step-desc">ผู้ใช้เลือกตั๋ว -> ส่งคำสั่งผ่าน API Gateway เข้าสู่ Payment Service</div>
+          </div>
+          <div class="step-card" style="border-top: 5px solid var(--sky-blue);">
+            <div class="step-badge" style="background: rgba(56, 189, 248, 0.2); color: var(--sky-blue); border-color: var(--sky-blue);">STEP 2</div>
+            <div class="step-title">สร้าง QR Code</div>
+            <div class="step-sub">Payment Gateway API</div>
+            <div class="step-desc">เชื่อมต่อ Omise / 2C2P เพื่อ Generate QR PromptPay ตามมาตรฐาน EMVCo</div>
+          </div>
+          <div class="step-card" style="border-top: 5px solid var(--mint-glow);">
+            <div class="step-badge">STEP 3</div>
+            <div class="step-title">ชำระเงิน</div>
+            <div class="step-sub">Mobile Banking</div>
+            <div class="step-desc">นักท่องเที่ยวสแกนจ่าย -> ธนาคารตัดยอดและยืนยันสถานะการโอนเงินสำเร็จ</div>
+          </div>
+          <div class="step-card" style="border-top: 5px solid var(--gold-accent);">
+            <div class="step-badge" style="background: rgba(245, 158, 11, 0.2); color: var(--gold-accent); border-color: var(--gold-accent);">STEP 4</div>
+            <div class="step-title">Webhook Callback</div>
+            <div class="step-sub">Signature Verification</div>
+            <div class="step-desc">Gateway ส่งผลชำระเงินกลับมา -> ตรวจ Digital Signature ป้องกัน Fake Order</div>
+          </div>
+          <div class="step-card" style="border-top: 5px solid var(--mint-bright);">
+            <div class="step-badge">STEP 5</div>
+            <div class="step-title">ออกตั๋วทันที</div>
+            <div class="step-sub">Database & Notify</div>
+            <div class="step-desc">บันทึกสถานะ PAID ในระบบ ออก e-Ticket QR Code และส่งแจ้งเตือนผู้ใช้</div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="border-left: 7px solid var(--gold-accent); padding: 18px 24px;">
+          <div style="font-weight: 700; font-size: 18px; color: var(--gold-accent); margin-bottom: 6px;">
+            <i class="fa-solid fa-clock"></i> นโยบายการยกเลิกอัตโนมัติ (10-Minute Auto-Expiry Rule)
+          </div>
+          <div style="font-size: 16px; color: var(--text-body); line-height: 1.6;">
+            • หากไม่มีการชำระเงินภายใน <b>10 นาที</b> นับตั้งแต่สร้างรายการ ระบบจะทำการ <b>Auto-Expire</b> ยกเลิกคำสั่งซื้อและ QR Code ทันที<br>
+            • ปลดล็อกและคืนโควตาที่นั่งกลับเข้าสู่ระบบส่วนกลาง เพื่อป้องกันการกักตั๋ว และเปิดโอกาสให้นักท่องเที่ยวท่านอื่นสามารถจองได้
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 6 : ระบบติดตามรถและสถานีวนลูป (1.5 นาที):<br>การเดินรถจัดเป็น Loop วนรอบ 6 สถานีหลัก ครอบคลุมไฮไลต์ของสวนฯ ทั้งหมด:<br>- IoT GPS: ติดตั้งบนรถนำเที่ยวทั้ง 3 คัน ส่งพิกัดตำแหน่งเข้า Backend ทุกๆ 5 วินาทีผ่าน WebSocket<br>- Location Engine & Geofencing: มีรั้วพิกัดเสมือนรอบสถานี ตรวจจับเมื่อรถเข้าจอดหรือออกจากสถานีอัตโนมัติ<br>- Dynamic ETA Calculator: คำนวณความเร็วและระยะทาง ประเมินเวลารถจะมาถึงแต่ละสถานีแบบเรียลไทม์ เช่น หน้าจอบอกว่าอีก 3 นาทีหรือ 8 นาทีรถจะมาถึง ทำให้นักท่องเที่ยววางแผนเวลาได้ ไม่ต้องยืนรออย่างไร้จุดหมายครับ
+          สคริปต์พูดหน้าที่ 6 : Payment Gateway Integration Flow (1.5 นาที):
+          สถาปัตยกรรมชำระเงินเชื่อมต่อ Gateway ชั้นนำ (Omise/2C2P) รองรับ PromptPay QR จุดสำคัญคือระบบ Webhook Callback ตรวจสอบ Digital Signature ป้องกัน Fake Order และมีกฎ 10-Minute Auto-Expiry หากไม่ชำระใน 10 นาที ระบบจะตัดคำสั่งซื้อและคืนที่นั่งให้ผู้อื่นทันทีครับ
         </aside>
       </section>
 
-      <!-- SLIDE 7 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_07.jpg" alt="Slide 7" class="slide-img">
+      <!-- SLIDE 7: Fleet Tracking & 6 Stations Loop (Real Photo of Tablet) -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Operations & Fleet</span>
+          <h2 class="header-title">ระบบติดตามรถและสถานีวนลูป (Loop 6 สถานี)</h2>
+          <p class="header-subtitle">การติดตามพิกัด GPS อัตโนมัติ พร้อมการคำนวณเวลาถึงสถานีแบบ Dynamic ETA</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.15fr 1.15fr 0.9fr; gap: 20px; text-align: left;">
+          <div class="glass-card" style="border-left: 6px solid var(--mint-glow);">
+            <h4 style="color: var(--mint-bright); font-size: 21px; margin-bottom: 16px;"><i class="fa-solid fa-satellite-dish"></i> กลไกการทำงานของระบบติดตาม</h4>
+            <ul>
+              <li><b>Tablet บนรถ 3 คัน:</b> ส่งพิกัด GPS ทุก <b>5 วินาที</b> ผ่านเครือข่าย 4G/Cellular</li>
+              <li><b>Geofencing:</b> ตรวจจับการเข้า-ออกจากแต่ละสถานีอัตโนมัติ</li>
+              <li><b>Dynamic ETA:</b> คำนวณความเร็วและระยะทาง ประเมินเวลารถถึงแม่นยำ</li>
+              <li><b>Driver App:</b> คนขับดูจำนวนผู้โดยสารและคิวในสถานีถัดไปได้ทันที</li>
+            </ul>
+          </div>
+
+          <div class="glass-card" style="border-left: 6px solid var(--mint-bright);">
+            <h4 style="color: var(--mint-bright); font-size: 21px; margin-bottom: 16px;"><i class="fa-solid fa-route"></i> การเดินรถวนลูป 6 สถานี</h4>
+            <div style="font-size: 16px; line-height: 1.75;">
+              <div><b>สถานี 1:</b> จุดบริการต้อนรับ <span class="tag-pill">ETA 3 นาที</span></div>
+              <div><b>สถานี 2:</b> พิพิธภัณฑ์ธรรมชาติ <span class="tag-pill">ETA 8 นาที</span></div>
+              <div><b>สถานี 3:</b> Canopy Walkway <span class="tag-pill">ETA 14 นาที</span></div>
+              <div><b>สถานี 4:</b> เรือนกระจก <span class="tag-pill">ETA 19 นาที</span></div>
+              <div><b>สถานี 5:</b> สวนกล้วยไม้ <span class="tag-pill">ETA 24 นาที</span></div>
+              <div><b>สถานี 6:</b> จุดชมวิวธรรมชาติ <span class="tag-pill">ETA 30 นาที</span></div>
+            </div>
+            <div style="margin-top: 14px; font-size: 15px; color: var(--gold-accent); font-weight: 700;">
+              <i class="fa-solid fa-arrows-rotate"></i> รถวิ่งวนลูปต่อเนื่อง ปรับความถี่ตามคิวรอ
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: 16px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+            <img src="images/ev_cart_cockpit_tablet.jpg" alt="อุปกรณ์ Tablet ประจำรถ" style="width: 100%; height: 230px; object-fit: cover; border-radius: 10px; border: 1.5px solid var(--border-glow);">
+            <div style="font-size: 14.5px; color: var(--text-body); line-height: 1.45; margin-top: 10px; text-align: left;">
+              <b style="color: var(--mint-bright);"><i class="fa-solid fa-camera"></i> ภาพจริง:</b> แท็บเล็ตประจำรถ EV ส่งพิกัด GPS ทุก 5 วิ และใช้สแกน Check-in
+            </div>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 7 : การบริหารจัดการคิวอัจฉริยะ (1.0 นาที):<br>ระบบบริหารคิวมี 2 กลไกสำคัญ:<br>1. Smart Queue Balancing & Seat Capacity: คำนวณจำนวนที่นั่งว่างบนรถเทียบกับคิวรอในแต่ละสถานี หากพบจุดใดมีผู้โดยสารตกค้างสะสม ระบบจะแจ้งเตือนให้จัดรถเสริมไปรับทันที<br>2. Proactive Push Notification: นักท่องเที่ยวสามารถเดินชมธรรมชาติ ถ่ายรูป หรือจิบกาแฟได้อย่างสบายใจ เพราะระบบจะส่ง Push Notification ผ่าน Mobile App หรือ LINE เตือนล่วงหน้าเมื่อรถใกล้ถึงสถานีในระยะ 3 นาทีครับ
+          สคริปต์พูดหน้าที่ 7 : ระบบติดตามรถและสถานีวนลูป (1.5 นาที):
+          เราจัดเดินรถวนลูป 6 สถานีหลัก รถ EV ทั้ง 3 คันมีแท็บเล็ตติดตั้งในห้องโดยสาร (ดังภาพจริงขวามือ) ส่งพิกัด GPS ทุก 5 วินาที มีระบบ Geofencing รับรู้การเข้าออกสถานี และ Dynamic ETA คำนวณเวลาถึงสถานีแบบสดๆ นักท่องเที่ยวจึงวางแผนเวลาได้ ไม่ต้องยืนรออย่างไร้จุดหมายครับ
         </aside>
       </section>
 
-      <!-- SLIDE 8 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_08.jpg" alt="Slide 8" class="slide-img">
+      <!-- SLIDE 8: Smart Queue & Push Notification -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Queue & Notifications</span>
+          <h2 class="header-title">การบริหารคิวอัจฉริยะและการแจ้งเตือน</h2>
+          <p class="header-subtitle">Smart Queue Balancing ลดความแออัด พร้อมระบบแจ้งเตือนแบบเรียลไทม์</p>
+        </div>
+        <div class="cards-row">
+          <div class="glass-card">
+            <div style="font-size: 32px; color: var(--mint-bright); margin-bottom: 12px;"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="card-title">Smart Queue Balancing</div>
+            <div class="card-sub">การกระจายผู้โดยสารอัจฉริยะ</div>
+            <div style="font-size: 17px; line-height: 1.7; color: var(--text-body);">
+              ระบบคำนวณความจุที่นั่งว่างจริง (Seat Capacity) เทียบกับจำนวนคิวรอในแต่ละสถานี หากพบจุดใดมีผู้โดยสารหนาแน่น ระบบจะแนะนำให้จัดรถเสริมไปยังสถานีนั้นทันที ลดปัญหาคอขวดที่สถานียอดนิยม
+            </div>
+          </div>
+
+          <div class="glass-card" style="border-color: var(--sky-blue);">
+            <div style="font-size: 32px; color: var(--sky-blue); margin-bottom: 12px;"><i class="fa-solid fa-display"></i></div>
+            <div class="card-title">Omnichannel Display</div>
+            <div class="card-sub" style="color: var(--sky-blue);">การแสดงผลสดรอบด้าน</div>
+            <div style="font-size: 17px; line-height: 1.7; color: var(--text-body);">
+              • <b>Live Map:</b> เห็นตำแหน่งรถเคลื่อนที่สดๆ บนแผนที่ในแอปพลิเคชัน<br>
+              • <b>Station Display:</b> จอประจำสถานีบอกเวลารถและคิวรอ<br>
+              • <b>Kiosk:</b> ตรวจสอบคิวและสิทธิ์ตั๋วได้ตลอดเวลา ข้อมูลโปร่งใสเข้าถึงง่าย
+            </div>
+          </div>
+
+          <div class="glass-card" style="border-color: var(--gold-accent);">
+            <div style="font-size: 32px; color: var(--gold-accent); margin-bottom: 12px;"><i class="fa-solid fa-bell"></i></div>
+            <div class="card-title">Proactive Push Notification</div>
+            <div class="card-sub" style="color: var(--gold-accent);">การแจ้งเตือนล่วงหน้า</div>
+            <div style="font-size: 17px; line-height: 1.7; color: var(--text-body);">
+              เมื่อรถคันที่จะมารับใกล้ถึงสถานีในระยะ 3 นาที หรือ 500 เมตร ระบบจะส่ง Push Notification ผ่าน Mobile App หรือ LINE ให้นักท่องเที่ยวเตรียมตัวมาขึ้นรถ ไม่ต้องยืนตากแดดรอที่สถานี
+            </div>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 8 : ระบบแนะนำแหล่งท่องเที่ยวตามพิกัด (1.0 นาที):<br>เพื่อส่งเสริมการเป็นแหล่งเรียนรู้พฤกษศาสตร์ เราได้นำเทคโนโลยี Geofence Virtual Beacon มาประยุกต์ใช้:<br>- เมื่อรถหรือนักท่องเที่ยวเดินทางเข้าสู่รั้วพิกัดของจุดท่องเที่ยวสำคัญ เช่น Canopy Walkway หรือเรือนกระจก ระบบจะส่งข้อมูล แนะนำพันธุ์ไม้เด่น และประวัติความเป็นมาเด้งขึ้นบนมือถืออัตโนมัติ<br>- พร้อมระบบ Audio Guide เปิดเสียงบรรยายให้นักท่องเที่ยวรับฟัง เสมือนมีมัคคุเทศก์ส่วนตัวคอยนำทางตลอดเส้นทางครับ
+          สคริปต์พูดหน้าที่ 8 : การบริหารคิวอัจฉริยะและการแจ้งเตือน (1.0 นาที):
+          ระบบมี Smart Queue Balancing คำนวณที่นั่งว่างเทียบกับคิวรอ หากสถานีไหนคนแน่นจะแจ้งเตือนให้จัดรถเสริมทันที และมี Proactive Push Notification แจ้งเตือนเตือนล่วงหน้าเมื่อรถใกล้ถึงสถานีในระยะ 3 นาที นักท่องเที่ยวจึงเดินชมพรรณไม้ ถ่ายรูป หรือจิบกาแฟได้อย่างสบายใจครับ
         </aside>
       </section>
 
-      <!-- SLIDE 9 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_09.jpg" alt="Slide 9" class="slide-img">
+      <!-- SLIDE 9: Touring Recommendation & Geofences -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Smart Guide</span>
+          <h2 class="header-title">ระบบแนะนำแหล่งท่องเที่ยวตามพิกัดภูมิศาสตร์</h2>
+          <p class="header-subtitle">ยกระดับการท่องเที่ยวเชิงเรียนรู้ด้วย Geofence Virtual Beacon Technology</p>
+        </div>
+        <div class="grid-2col">
+          <div class="glass-card" style="border-left: 6px solid var(--mint-glow); padding: 26px;">
+            <h4 style="color: var(--mint-bright); font-size: 22px; margin-bottom: 18px;"><i class="fa-solid fa-map-location-dot"></i> เทคโนโลยี Geofences ในพื้นที่ 6,500 ไร่</h4>
+            <ul>
+              <li><b>รั้วพิกัดเสมือน (Virtual Geofence Zones):</b> กำหนดพื้นที่จำลองรอบจุดแลนด์มาร์ก ตรวจจับเมื่อรถหรือนักท่องเที่ยวเข้าสู่พื้นที่อัตโนมัติ</li>
+              <li><b>Automatic Audio & Multimedia Guide:</b> เด้งข้อมูลความรู้ แนะนำพันธุ์ไม้เด่น ประวัติความเป็นมา บนหน้าจอมือถือตามจุดที่ยืนอยู่</li>
+              <li><b>Smart Route Suggestions:</b> แนะนำเส้นทางตามเวลา เช่น ทริปสั้น 1 ชม. หรือทริปเจาะลึก 3 ชม. สำหรับผู้รักธรรมชาติ</li>
+            </ul>
+          </div>
+
+          <div class="glass-card" style="border-left: 6px solid var(--mint-bright); padding: 26px;">
+            <h4 style="color: var(--mint-bright); font-size: 22px; margin-bottom: 18px;"><i class="fa-solid fa-tree"></i> ไฮไลต์แลนด์มาร์กสำคัญที่เชื่อมต่อในระบบ</h4>
+            <div style="font-size: 16.5px; line-height: 1.7;">
+              <div style="margin-bottom: 10px;"><b>1. Canopy Walkway:</b> ทางเดินเรือนยอดไม้ที่ยาวที่สุดในไทย แนะนำพันธุ์ไม้เรือนยอด</div>
+              <div style="margin-bottom: 10px;"><b>2. กลุ่มเรือนกระจกเฉลิมพระเกียรติ:</b> รวบรวมพืชทนแล้ง พืชป่าดงดิบ พืชกินแมลง และบัวนานาพันธุ์</div>
+              <div style="margin-bottom: 10px;"><b>3. พิพิธภัณฑ์ธรรมชาติวิทยา:</b> นิทรรศการถาวรความหลากหลายทางชีวภาพ</div>
+              <div><b>4. จุดตั้งแคมป์และลานธรรมชาติ:</b> แหล่งพักผ่อน สัมผัสทิวทัศน์ดอยแม่ริม</div>
+            </div>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 9 : เทคโนโลยีที่เลือกใช้ (1.5 นาที):<br>เราเลือกใช้ Technology Stack ระดับ Enterprise:<br>- Frontend: Next.js สำหรับ Web & Admin Dashboard และ React Native สำหรับ Mobile App และ Driver App<br>- Backend: Node.js + Fastify Throughput สูง กินทรัพยากรต่ำ, Socket.io Server สำหรับสตรีมพิกัด GPS, Bull Queue สำหรับงานเบื้องหลัง และ JWT สำหรับความปลอดภัย<br>- Database: PostgreSQL, Redis Cache และ TimescaleDB สำหรับ Big Data พิกัด GPS<br>- Infrastructure: Docker / Kubernetes ติดตั้งบน AWS / GCP Cloud การันตี Uptime 99.9% พร้อม CI/CD GitHub Actions ครับ
+          สคริปต์พูดหน้าที่ 9 : ระบบแนะนำแหล่งท่องเที่ยวตามพิกัด (1.0 นาที):
+          เราใช้ Geofencing สร้างรั้วพิกัดเสมือนรอบแลนด์มาร์ก เช่น Canopy Walkway หรือกลุ่มเรือนกระจก เมื่อรถหรือนักท่องเที่ยวเข้าสู่พื้นที่ ข้อมูลแนะนำพันธุ์ไม้เด่น ประวัติความเป็นมา และ Audio Guide จะเด้งขึ้นบนมือถืออัตโนมัติ เสมือนมีมัคคุเทศก์ส่วนตัวตลอดเส้นทางครับ
         </aside>
       </section>
 
-      <!-- SLIDE 10 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_10.jpg" alt="Slide 10" class="slide-img">
+      <!-- SLIDE 10: Tech Stack -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Technology</span>
+          <h2 class="header-title">เทคโนโลยีและโครงสร้างพื้นฐาน (Tech Stack)</h2>
+          <p class="header-subtitle">คัดเลือกเทคโนโลยีระดับ Enterprise เพื่อความรวดเร็ว เสถียร และรองรับการขยายตัว</p>
+        </div>
+        <div class="grid-2col">
+          <div class="glass-card" style="padding: 22px 24px;">
+            <h4 style="color: var(--mint-bright); font-size: 21px; margin-bottom: 10px;"><i class="fa-solid fa-code"></i> Frontend & Mobile</h4>
+            <div style="font-size: 16.5px; line-height: 1.65;">
+              • <b>Next.js:</b> เว็บแอปและ Admin Dashboard โหลดเร็ว รองรับ SEO<br>
+              • <b>React Native:</b> Mobile App (iOS / Android) และ Driver App ประสิทธิภาพสูง<br>
+              • <b>Tailwind CSS:</b> UI โมเดิร์น Responsive รองรับทุกขนาดหน้าจอ
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: 22px 24px;">
+            <h4 style="color: var(--mint-bright); font-size: 21px; margin-bottom: 10px;"><i class="fa-solid fa-gears"></i> Backend & Streaming</h4>
+            <div style="font-size: 16.5px; line-height: 1.65;">
+              • <b>Node.js + Fastify:</b> เฟรมเวิร์กประสิทธิภาพสูง Throughput ระดับสูง<br>
+              • <b>Socket.io Server:</b> Real-time Streaming พิกัด GPS แบบสองทิศทาง<br>
+              • <b>Bull Queue & JWT:</b> จัดคิวงานเบื้องหลังและการยืนยันสิทธิ์ความปลอดภัย
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: 22px 24px;">
+            <h4 style="color: var(--mint-bright); font-size: 21px; margin-bottom: 10px;"><i class="fa-solid fa-database"></i> Database & Time-series</h4>
+            <div style="font-size: 16.5px; line-height: 1.65;">
+              • <b>PostgreSQL:</b> ฐานข้อมูลหลัก จัดเก็บข้อมูลผู้ใช้ ตั๋ว และการเงิน<br>
+              • <b>TimescaleDB:</b> รองรับพิกัด GPS Time-series นับล้านเรคคอร์ดโดยเฉพาะ<br>
+              • <b>Redis:</b> In-memory Cache ความเร็วระดับมิลลิวินาที
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: 22px 24px;">
+            <h4 style="color: var(--mint-bright); font-size: 21px; margin-bottom: 10px;"><i class="fa-solid fa-cloud"></i> Infrastructure & DevOps</h4>
+            <div style="font-size: 16.5px; line-height: 1.65;">
+              • <b>Docker & Kubernetes (K8s):</b> ปรับสเกลอัตโนมัติช่วงเทศกาล<br>
+              • <b>AWS / GCP Cloud:</b> การันตี Uptime สูง 99.9% ปลอดภัยระดับสากล<br>
+              • <b>GitHub Actions:</b> CI/CD Pipeline ทดสอบและอัปเดตระบบอัตโนมัติ
+            </div>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 10 : แผนการดำเนินงาน 9 เดือน (1.0 นาที):<br>แผนการดำเนินงานแบ่งเป็น 3 ระยะอย่างชัดเจน:<br>- Phase 1 (เดือนที่ 1-3) Core Foundation: ออกแบบฐานข้อมูล, พัฒนา API, ตู้ Kiosk, เชื่อมต่อ Payment Gateway และ Driver App บนแท็บเล็ต<br>- Phase 2 (เดือนที่ 4-6) Realtime & Mobile: ติดตั้ง WebSocket Server, พัฒนา Mobile App (iOS/Android) และทดสอบระบบ Live Tracking บนพื้นที่จริง 6 สถานี<br>- Phase 3 (เดือนที่ 7-9) Advanced Features: เปิดระบบ Push Notification, Analytics Dashboard สำหรับผู้บริหาร, เปิดระบบจองออนไลน์ล่วงหน้า จัดอบรมบุคลากร และส่งมอบงานสมบูรณ์ครับ
+          สคริปต์พูดหน้าที่ 10 : เทคโนโลยีที่เลือกใช้ (1.5 นาที):
+          Tech Stack ระดับ Enterprise: Frontend ใช้ Next.js และ React Native Backend ใช้ Node.js + Fastify และ Socket.io สตรีม GPS Database ใช้ PostgreSQL, Redis และ TimescaleDB และวางระบบบน Docker / Kubernetes บน Cloud การันตี Uptime 99.9% พร้อมรับนักท่องเที่ยวช่วงเทศกาลครับ
         </aside>
       </section>
 
-      <!-- SLIDE 11 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_11.jpg" alt="Slide 11" class="slide-img">
+      <!-- SLIDE 11: Implementation Roadmap -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Roadmap</span>
+          <h2 class="header-title">แผนการดำเนินงานโครงการ (Roadmap 9 เดือน)</h2>
+          <p class="header-subtitle">แบ่งการพัฒนาเป็น 3 ระยะอย่างเป็นระบบ เพื่อส่งมอบผลงานที่สมบูรณ์ตรงเวลา</p>
+        </div>
+        <div class="cards-row">
+          <div class="glass-card" style="border-top: 6px solid var(--sky-blue);">
+            <div class="card-num" style="color: var(--sky-blue); font-size: 22px;">PHASE 1 (เดือน 1-3)</div>
+            <div class="card-title" style="font-size: 20px;">Core Foundation</div>
+            <div class="card-sub" style="color: var(--sky-blue);">รากฐานระบบ & การเงิน</div>
+            <ul>
+              <li>ออกแบบ DB Schema & สถาปัตยกรรม</li>
+              <li>พัฒนา Backend API (Ticket, Station, Auth)</li>
+              <li>พัฒนา Admin Dashboard จัดการสถานี/รถ</li>
+              <li>พัฒนา Kiosk UI ซื้อตั๋วหน้าสถานี</li>
+              <li>เชื่อมต่อ Payment Gateway (QR/บัตร)</li>
+              <li>พัฒนา Driver App (Tablet GPS)</li>
+            </ul>
+          </div>
+
+          <div class="glass-card" style="border-top: 6px solid var(--mint-glow);">
+            <div class="card-num" style="font-size: 22px;">PHASE 2 (เดือน 4-6)</div>
+            <div class="card-title" style="font-size: 20px;">Realtime & Mobile</div>
+            <div class="card-sub">ระบบเรียลไทม์ & แอปพลิเคชัน</div>
+            <ul>
+              <li>ติดตั้ง WebSocket Server Live Tracking</li>
+              <li>พัฒนา Mobile App (iOS + Android)</li>
+              <li>พัฒนาระบบ Queue Management</li>
+              <li>เชื่อมต่อ Geofence ทดสอบ Loop 6 สถานี</li>
+              <li>ทดสอบสแกน QR Check-in บนรถจริง</li>
+              <li>ทดสอบความเสถียรของสัญญาณในสวน</li>
+            </ul>
+          </div>
+
+          <div class="glass-card" style="border-top: 6px solid var(--gold-accent);">
+            <div class="card-num" style="color: var(--gold-accent); font-size: 22px;">PHASE 3 (เดือน 7-9)</div>
+            <div class="card-title" style="font-size: 20px;">Advanced & Rollout</div>
+            <div class="card-sub" style="color: var(--gold-accent);">ฟังก์ชันขั้นสูง & ส่งมอบงาน</div>
+            <ul>
+              <li>ระบบ Push Notification (LINE/SMS)</li>
+              <li>ระบบ Real-time Analytics Dashboard</li>
+              <li>เปิด Online Booking จองล่วงหน้า</li>
+              <li>จัดทำคู่มือการใช้งานระบบทุกกลุ่ม</li>
+              <li>ฝึกอบรมเจ้าหน้าที่และคนขับรถ</li>
+              <li>ทดสอบระบบสมบูรณ์ และส่งมอบงาน</li>
+            </ul>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 11 : ประโยชน์ที่คาดว่าจะได้รับ (1.5 นาที):<br>ผลประโยชน์และความคุ้มค่าเกิดขึ้นใน 4 มิติ:<br>1. นักท่องเที่ยว: ได้รับความสะดวกสบาย ซื้อตั๋วง่าย ทราบเวลารถชัดเจน สัมผัสธรรมชาติที่เงียบสงบ<br>2. เจ้าหน้าที่ & คนขับ: สแกนตรวจตั๋วรวดเร็ว ทราบจำนวนคนรอสถานีถัดไป ลดภาระงานและความขัดแย้งหน้างาน<br>3. ผู้บริหาร: มี Data-Driven Dashboard เห็นข้อมูลสถิติเชิงลึกและรายได้อย่างโปร่งใส 100% นำไปวางแผนพัฒนาสวนฯ ได้อย่างแม่นยำ<br>4. สิ่งแวดล้อม: ลดการปล่อยคาร์บอนด้วยรถ EV 100% ไร้เสียง ไร้ควัน ยกระดับสวนพฤกษศาสตร์ไทยสู่มาตรฐานสากลครับ
+          สคริปต์พูดหน้าที่ 11 : แผนการดำเนินงาน 9 เดือน (1.0 นาที):
+          แผนงาน 9 เดือนแบ่ง 3 ระยะ: Phase 1 (ด.1-3) วางรากฐาน ฐานข้อมูล ตู้ Kiosk และ Driver App Phase 2 (ด.4-6) พัฒนาระบบเรียลไทม์ Mobile App และทดสอบบนพื้นที่จริง 6 สถานี และ Phase 3 (ด.7-9) Notification, Analytics Dashboard อบรมบุคลากร และส่งมอบงานสมบูรณ์ครับ
         </aside>
       </section>
 
-      <!-- SLIDE 12 -->
-      <section data-background-color="#0a1912" style="padding: 0; margin: 0; width: 100%; height: 100%;">
-        <div class="slide-wrapper">
-          <img src="images_emerald/slide_12.jpg" alt="Slide 12" class="slide-img">
+      <!-- SLIDE 12: Expected Impacts (Real Photo of Charger) -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div class="slide-header">
+          <span class="header-badge">Value Creation</span>
+          <h2 class="header-title">คุณค่าและประโยชน์ที่คาดว่าจะได้รับ</h2>
+          <p class="header-subtitle">การสร้างผลกระทบเชิงบวกอย่างครอบคลุมต่อทุกภาคส่วนที่เกี่ยวข้อง</p>
+        </div>
+        <div class="grid-2col">
+          <div class="glass-card" style="border-left: 6px solid var(--mint-glow); padding: 22px 24px;">
+            <h4 style="color: var(--mint-bright); font-size: 20px; margin-bottom: 10px;"><i class="fa-solid fa-person-walking-luggage"></i> นักท่องเที่ยว (Tourists)</h4>
+            <div style="font-size: 16.5px; line-height: 1.65;">
+              • ซื้อตั๋วสะดวกทุกช่องทาง ไม่ต้องต่อแถวยาว<br>
+              • ทราบเวลารถมาถึงล่วงหน้า ลดความเครียดในการรอคอย<br>
+              • ได้รับความรู้พันธุ์ไม้ตลอดเส้นทางผ่านระบบ Geofences<br>
+              • สัมผัสธรรมชาติที่เงียบสงบ ปราศจากควันพิษ
+            </div>
+          </div>
+
+          <div class="glass-card" style="border-left: 6px solid var(--sky-blue); padding: 22px 24px;">
+            <h4 style="color: var(--sky-blue); font-size: 20px; margin-bottom: 10px;"><i class="fa-solid fa-id-card-clip"></i> เจ้าหน้าที่ & คนขับรถ (Staff & Drivers)</h4>
+            <div style="font-size: 16.5px; line-height: 1.65;">
+              • ตรวจสอบตั๋วด้วย Tablet ภายใน 1 วินาที ป้องกันตั๋วซ้ำ<br>
+              • ทราบจำนวนผู้โดยสารในสถานีถัดไปล่วงหน้า จัดการรถได้ง่าย<br>
+              • ลดความแออัดและลดความขัดแย้งในการจัดคิวหน้างาน<br>
+              • มีเครื่องมือดิจิทัลที่ทันสมัยช่วยให้การทำงานคล่องตัว
+            </div>
+          </div>
+
+          <div class="glass-card" style="border-left: 6px solid var(--mint-bright); padding: 22px 24px;">
+            <h4 style="color: var(--mint-bright); font-size: 20px; margin-bottom: 10px;"><i class="fa-solid fa-chart-line"></i> ผู้บริหารและองค์กร (Management)</h4>
+            <div style="font-size: 16.5px; line-height: 1.65;">
+              • Real-time Dashboard ติดตามสถานะการเดินรถและรายได้ทันที<br>
+              • มีข้อมูลสถิติเชิงพื้นที่นำไปวางแผนพัฒนาสวนฯ ได้อย่างแม่นยำ<br>
+              • ตรวจสอบยอดจำหน่ายตั๋วได้อย่างโปร่งใส 100%<br>
+              • ยกระดับภาพลักษณ์สู่ Smart Botanical Garden สากล
+            </div>
+          </div>
+
+          <div class="glass-card" style="border-left: 6px solid var(--gold-accent); display: flex; flex-direction: row; gap: 18px; align-items: center; padding: 18px 20px;">
+            <div style="flex: 1.25; font-size: 15.5px; line-height: 1.6;">
+              <h4 style="color: var(--gold-accent); font-size: 19px; margin-bottom: 8px;"><i class="fa-solid fa-earth-americas"></i> สิ่งแวดล้อมและความยั่งยืน</h4>
+              • ลดก๊าซเรือนกระจกและมลพิษทางเสียงด้วยรถ EV 100%<br>
+              • ส่งเสริมภาพลักษณ์การท่องเที่ยวสีเขียว (Green Tourism)<br>
+              • เป็นต้นแบบ Digital & Green Transformation<br>
+              • อนุรักษ์ระบบนิเวศในพื้นที่ 6,500 ไร่อย่างยั่งยืน
+            </div>
+            <div style="flex: 0.75; text-align: center;">
+              <img src="images/ev_charger_station.jpg" alt="จุดชาร์จ EV Tram Charger จริง" style="width: 100%; height: 135px; object-fit: cover; border-radius: 8px; border: 1.5px solid var(--border-glow);">
+              <div style="font-size: 12.5px; color: var(--mint-light); margin-top: 4px;">ภาพจริง: จุดชาร์จ EV Tram</div>
+            </div>
+          </div>
         </div>
         <aside class="notes">
-          สคริปต์บทพูดหน้าที่ 12 : บทสรุปและการถาม-ตอบ (1.0 นาที):<br>โดยสรุปแล้ว โครงการออกแบบและพัฒนาระบบจัดการรถนำเที่ยวไฟฟ้า สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ คือการผสานรวมพลังงานสะอาดเข้ากับนวัตกรรมดิจิทัล เพื่อสร้างอนาคตสีเขียวที่ยั่งยืนอย่างแท้จริง<br><br>ทางทีมงานมีความพร้อมที่จะเริ่มดำเนินงานตามแผนงาน Phase 1 ทันทีครับ<br>ผมขอขอบพระคุณท่านประธานและคณะกรรมการทุกท่านเป็นอย่างสูง และยินดีรับฟังข้อเสนอแนะรวมถึงตอบข้อซักถามครับ ขอบคุณครับ
+          สคริปต์พูดหน้าที่ 12 : ประโยชน์และคุณค่าที่ได้รับ (1.5 นาที):
+          ความคุ้มค่าเกิดขึ้นใน 4 มิติ: นักท่องเที่ยวสะดวกสบาย เจ้าหน้าที่ทำงานง่ายขึ้น ผู้บริหารมี Real-time Dashboard ข้อมูลสถิติเชิงลึก และด้านสิ่งแวดล้อม (ดังภาพจุดชาร์จ EV Charger จริง) การเปลี่ยนมาใช้รถ EV 100% ช่วยลดมลพิษ ปกป้องระบบนิเวศในพื้นที่ 6,500 ไร่อย่างยั่งยืนครับ
+        </aside>
+      </section>
+
+      <!-- SLIDE 13: Conclusion & Q&A -->
+      <section data-background-image="images/dark_topographic_bg.jpg">
+        <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding: 40px;">
+          <div class="glass-card" style="max-width: 950px; text-align: center; padding: 50px 60px;">
+            <div class="header-badge" style="margin-bottom: 20px;"><i class="fa-solid fa-check-circle"></i> SMART & GREEN BOTANICAL GARDEN | FUTURE OF QSBG</div>
+            <h1 class="header-title" style="font-size: 44px !important; margin-bottom: 20px !important;">การผสานรวมรถนำเที่ยวไฟฟ้า (EV)<br>และ Smart Tourism Platform เพื่ออนาคตสีเขียวที่ยั่งยืน</h1>
+            <p style="font-size: 19px; line-height: 1.7; color: var(--text-body); margin-bottom: 30px;">
+              โครงการพัฒนาระบบจัดการรถนำเที่ยวไฟฟ้า สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ พร้อมเดินหน้าตามแผนงาน Phase 1 ทันที เพื่อส่งมอบระบบที่สมบูรณ์แบบ ทั้งการบริการ การบริหารจัดการ และความยั่งยืนในทุกมิติ
+            </p>
+            <div style="font-size: 26px; font-weight: 700; color: var(--gold-accent); text-shadow: 0 0 20px rgba(245,158,11,0.3);">
+              ขอขอบพระคุณคณะกรรมการทุกท่าน &nbsp;|&nbsp; ช่วงถาม - ตอบ (Q & A)
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          สคริปต์พูดหน้าที่ 13 : บทสรุปและการถาม-ตอบ (1.0 นาที):
+          โครงการพัฒนาระบบจัดการรถนำเที่ยวไฟฟ้า สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ คือการผสานเทคโนโลยีเข้ากับธรรมชาติอย่างลงตัว ทีมงานพร้อมเดินหน้าตามแผนงาน Phase 1 ทันทีครับ ขอขอบพระคุณคณะกรรมการทุกท่าน และยินดีรับฟังข้อเสนอแนะรวมถึงตอบข้อซักถามครับ ขอบคุณครับ
         </aside>
       </section>
 
@@ -289,15 +962,14 @@
       center: true,
       transition: 'fade',
       backgroundTransition: 'fade',
-      width: 1920,
-      height: 1080,
-      margin: 0.02,
-      minScale: 0.1,
+      width: 1440,
+      height: 810,
+      margin: 0.03,
+      minScale: 0.2,
       maxScale: 2.0,
       plugins: [ RevealNotes ]
     });
 
-    // Update custom counter
     function updateCounter() {
       var indices = Reveal.getIndices();
       var total = Reveal.getTotalSlides();
