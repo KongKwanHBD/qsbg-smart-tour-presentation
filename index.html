@@ -497,7 +497,80 @@
         </aside>
       </section>
 
-      <!-- SLIDE 4: System Architecture -->
+
+      <!-- SLIDE 4: Project Scope -->
+      <section>
+        <div class="slide-header">
+          <span class="header-badge">Project Scope</span>
+          <h2 class="header-title">ขอบเขตโครงการ (Project Scope)</h2>
+          <p class="header-subtitle">กรอบการดำเนินงานพัฒนาระบบสารสนเทศและการบริหารจัดการรถนำเที่ยวไฟฟ้าอย่างครบวงจร</p>
+        </div>
+        <div class="grid-2col" style="grid-template-columns: 1fr 1.15fr; gap: 20px; align-items: stretch;">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="card" style="border-left: 6px solid var(--tech-navy); padding: 20px 24px; flex: 1;">
+              <h4 style="color: var(--tech-navy); font-size: 19px; margin-bottom: 12px;"><i class="fa-solid fa-diagram-project"></i> งานวิเคราะห์ ออกแบบ และบูรณาการ</h4>
+              <div style="margin-bottom: 12px;">
+                <b style="color: var(--primary-dark); font-size: 16.5px; display: block; margin-bottom: 3px;">1. วิเคราะห์และออกแบบฐานข้อมูลระบบจัดการรถนำเที่ยว</b>
+                <p style="font-size: 14.5px; color: var(--text-dark); margin: 0; line-height: 1.5;">วางโครงสร้างฐานข้อมูล (Schema) และสถาปัตยกรรมสารสนเทศเพื่อรองรับการบริหารจัดการที่มีเสถียรภาพและแม่นยำ</p>
+              </div>
+              <div>
+                <b style="color: var(--primary-dark); font-size: 16.5px; display: block; margin-bottom: 3px;">2. ศึกษาและพัฒนารูปแบบการเชื่อมโยงและบูรณาการข้อมูล</b>
+                <p style="font-size: 14.5px; color: var(--text-dark); margin: 0; line-height: 1.5;">บูรณาการข้อมูลการท่องเที่ยวภายในสวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ และหน่วยงานอื่นที่เกี่ยวข้อง</p>
+              </div>
+            </div>
+
+            <div class="card" style="border-left: 6px solid var(--accent-mint); padding: 18px 24px;">
+              <h4 style="color: var(--primary-mid); font-size: 18px; margin-bottom: 10px;"><i class="fa-solid fa-book-bookmark"></i> การฝึกอบรมและส่งมอบงาน</h4>
+              <div style="margin-bottom: 10px;">
+                <b style="color: var(--primary-dark); font-size: 16px; display: block; margin-bottom: 2px;">4. จัดทำคู่มือการใช้งานระบบและฝึกอบรม</b>
+                <p style="font-size: 14px; color: var(--text-dark); margin: 0; line-height: 1.45;">จัดทำเอกสารคู่มือครบทุกกลุ่มผู้ใช้ พร้อมจัดอบรมเชิงปฏิบัติการแก่เจ้าหน้าที่และพนักงานขับรถ</p>
+              </div>
+              <div>
+                <b style="color: var(--primary-dark); font-size: 16px; display: block; margin-bottom: 2px;">5. ส่งมอบรายงานฉบับสมบูรณ์</b>
+                <p style="font-size: 14px; color: var(--text-dark); margin: 0; line-height: 1.45;">ส่งมอบรายงานฉบับสมบูรณ์พร้อมซอร์สโค้ดและระบบสารสนเทศที่ผ่านการทดสอบมาตรฐาน</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="border-left: 6px solid var(--primary-mid); padding: 22px 24px; display: flex; flex-direction: column;">
+            <h4 style="color: var(--primary-dark); font-size: 20px; margin-bottom: 4px;"><i class="fa-solid fa-cubes"></i> 3. พัฒนาแอพพลิเคชันระบบการจัดการรถนำเที่ยว</h4>
+            <p style="font-size: 14.5px; color: var(--navy-light); font-weight: 600; margin: 0 0 12px 0;">ประกอบด้วย 6 ระบบปฏิบัติการหลัก (Core System Modules):</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 1.45;">
+              <div style="background: rgba(45,106,79,0.05); padding: 8px 12px; border-radius: 8px; border-left: 3px solid var(--primary-mid);">
+                <b style="color: var(--primary-dark);">3.1 ระบบจำหน่ายตั๋วอัตโนมัติ Smart e-Ticket</b><br>
+                บริการซื้อและออกตั๋ว One-time QR Code ผ่าน Web, Mobile App และตู้ Kiosk ประจำสถานี
+              </div>
+              <div style="background: rgba(11,37,69,0.05); padding: 8px 12px; border-radius: 8px; border-left: 3px solid var(--tech-navy);">
+                <b style="color: var(--tech-navy);">3.2 ระบบจัดการเส้นทางและตรวจสอบเวลาการเดินรถ Tour Cart Tracking Service</b><br>
+                ติดตามพิกัด GPS รถนำเที่ยวไฟฟ้า Real-time พร้อมคำนวณเวลาถึงสถานี (Dynamic ETA)
+              </div>
+              <div style="background: rgba(45,106,79,0.05); padding: 8px 12px; border-radius: 8px; border-left: 3px solid var(--primary-mid);">
+                <b style="color: var(--primary-dark);">3.3 ระบบตรวจสอบตั๋วและจัดการคิวผู้โดยสาร Queue Management</b><br>
+                สแกนตรวจสิทธิ์ตั๋ว Check-in ผ่าน Tablet คนขับ และประมวลผลจัดสรรคิวลดความแออัด
+              </div>
+              <div style="background: rgba(11,37,69,0.05); padding: 8px 12px; border-radius: 8px; border-left: 3px solid var(--tech-navy);">
+                <b style="color: var(--tech-navy);">3.4 ระบบการแจ้งคิวรับบริการ แจ้งเตือนรถใกล้ถึงสถานี Push Notification</b><br>
+                แจ้งเตือนล่วงหน้า 3 นาที ผ่าน Mobile App / LINE เพื่อให้นักท่องเที่ยวเตรียมพร้อมขึ้นรถ
+              </div>
+              <div style="background: rgba(45,106,79,0.05); padding: 8px 12px; border-radius: 8px; border-left: 3px solid var(--primary-mid);">
+                <b style="color: var(--primary-dark);">3.5 ระบบการให้คำแนะนำและบริการจากแหล่งท่องเที่ยว ณ พิกัดภูมิศาสตร์ (Geofences)</b><br>
+                แนะนำข้อมูลพันธุ์ไม้เด่น ประวัติจุดท่องเที่ยว และ Audio Guide อัตโนมัติตามพิกัด
+              </div>
+              <div style="background: rgba(180,83,9,0.05); padding: 8px 12px; border-radius: 8px; border-left: 3px solid var(--gold-accent);">
+                <b style="color: var(--gold-accent);">3.6 ระบบรายงานผลการปฏิบัติงานแบบเวลาจริง Real-time Dashboard & Report</b><br>
+                แดชบอร์ดสรุปสถิติผู้โดยสาร ความหนาแน่นสถานี และรายได้แบบเรียลไทม์สำหรับผู้บริหาร
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          สคริปต์พูดหน้าที่ 4 (1.5 นาที):
+          ขอบเขตการดำเนินโครงการครอบคลุม 5 ด้านหลักตามข้อกำหนด: ด้านที่ 1 วิเคราะห์และออกแบบฐานข้อมูลระบบจัดการรถนำเที่ยว ด้านที่ 2 ศึกษาและพัฒนารูปแบบการเชื่อมโยงบูรณาการข้อมูลการท่องเที่ยวภายในสวนพฤกษศาสตร์ฯ และหน่วยงานที่เกี่ยวข้อง ด้านที่ 3 คือการพัฒนา Application Suite 6 ระบบหลัก ได้แก่ Smart e-Ticket, Tracking Service, Queue Management, Push Notification, Geofence Recommendation และ Real-time Dashboard และด้านที่ 4 และ 5 คือการจัดทำคู่มือ ฝึกอบรมบุคลากร และส่งมอบงานสมบูรณ์ครับ
+        </aside>
+      </section>
+
+      <!-- SLIDE 5: System Architecture -->
       <section>
         <div class="slide-header">
           <span class="header-badge">Architecture</span>
@@ -549,12 +622,12 @@
           </div>
         </div>
         <aside class="notes">
-          สคริปต์พูดหน้าที่ 4 (1.5 นาที):
+          สคริปต์พูดหน้าที่ 5 (1.5 นาที):
           เราได้ออกแบบสถาปัตยกรรมเป็น 4 ชั้น: ชั้นที่ 1 Frontend รองรับทั้ง Web, Mobile, Kiosk และ Tablet คนขับ ชั้นที่ 2 Backend API Gateway แยก Microservices อย่างชัดเจน ชั้นที่ 3 IoT & Real-time มีจุดเด่นคือการสตรีมพิกัด GPS จากรถทั้ง 3 คัน ทุกๆ 5 วินาที และชั้นที่ 4 Data Layer เราแยก PostgreSQL สำหรับข้อมูลธุรกิจ และ TimescaleDB สำหรับพิกัด Time-series GPS ทำให้ระบบตอบสนองเร็วและเสถียรมากครับ
         </aside>
       </section>
 
-      <!-- SLIDE 5: e-Ticket Flow -->
+      <!-- SLIDE 6: e-Ticket Flow -->
       <section>
         <div class="slide-header">
           <span class="header-badge">e-Ticket Flow</span>
@@ -605,7 +678,7 @@
           </div>
         </div>
         <aside class="notes">
-          สคริปต์พูดหน้าที่ 5 (1.5 นาที):
+          สคริปต์พูดหน้าที่ 6 (1.5 นาที):
           สไลด์นี้แสดง e-Ticket Flow ทั้ง 5 ขั้นตอนตามข้อกำหนดครับ:
           เริ่มจาก Step 1 นักท่องเที่ยวเลือกซื้อตั๋วได้ทั้งบน Mobile App, Web หรือตู้ Kiosk จากนั้น Step 2 ชำระเงินผ่าน PromptPay QR ทุกธนาคาร
           เมื่อยืนยันยอดเงินสำเร็จ เข้าสู่ Step 3 ระบบสร้าง e-Ticket เป็น Dynamic One-Time QR Code
@@ -614,7 +687,7 @@
         </aside>
       </section>
 
-      <!-- SLIDE 6: Payment Gateway Flow -->
+      <!-- SLIDE 7: Payment Gateway Flow -->
       <section>
         <div class="slide-header">
           <span class="header-badge">Payment Gateway</span>
@@ -665,7 +738,7 @@
           </div>
         </div>
         <aside class="notes">
-          สคริปต์พูดหน้าที่ 6 (1.5 นาที):
+          สคริปต์พูดหน้าที่ 7 (1.5 นาที):
           สไลด์นี้แสดงสถาปัตยกรรม Payment Gateway Integration ซึ่งเน้นความปลอดภัยและความถูกต้องทางการเงินครับ:
           เริ่มจากคำสั่งซื้อผ่าน API Gateway ไปยัง Gateway สากล เช่น Omise หรือ 2C2P เพื่อสร้าง QR PromptPay มาตรฐาน EMVCo
           เมื่อผู้ใช้สแกนจ่าย ธนาคารจะส่งผลกลับมายังระบบผ่าน Webhook Callback ซึ่งจุดสำคัญคือ เรามีการตรวจสอบ Digital Signature ป้องกันการส่งข้อมูลปลอม
@@ -674,7 +747,7 @@
         </aside>
       </section>
 
-      <!-- SLIDE 7: Fleet Tracking & 6 Stations Loop -->
+      <!-- SLIDE 8: Fleet Tracking & 6 Stations Loop -->
       <section>
         <div class="slide-header">
           <span class="header-badge">Operations & Fleet</span>
@@ -715,12 +788,12 @@
           </div>
         </div>
         <aside class="notes">
-          สคริปต์พูดหน้าที่ 7 (1.5 นาที):
+          สคริปต์พูดหน้าที่ 8 (1.5 นาที):
           เราจัดเส้นทางเดินรถเป็น Loop วนรอบ 6 สถานีหลักที่ครอบคลุมไฮไลต์ของสวนฯ ทั้งหมด บนรถ EV ทั้ง 3 คัน จะมี Tablet ติดตั้งอยู่ ส่งพิกัด GPS เข้าเซิร์ฟเวอร์ทุกๆ 5 วินาที ระบบ Geofencing จะรับรู้การเข้าออกสถานีอัตโนมัติ และ Dynamic ETA Calculator จะคำนวณเวลาที่รถจะถึงสถานีแบบเรียลไทม์ ทำให้นักท่องเที่ยววางแผนเวลาได้ หมดปัญหาการยืนรออย่างไร้จุดหมายครับ
         </aside>
       </section>
 
-      <!-- SLIDE 8: Smart Queue & Push Notification -->
+      <!-- SLIDE 9: Smart Queue & Push Notification -->
       <section>
         <div class="slide-header">
           <span class="header-badge">Queue & Notifications</span>
@@ -758,12 +831,12 @@
           </div>
         </div>
         <aside class="notes">
-          สคริปต์พูดหน้าที่ 8 (1.0 นาที):
+          สคริปต์พูดหน้าที่ 9 (1.0 นาที):
           ระบบของเรามี Smart Queue Balancing ที่คอยดูว่าสถานีไหนคนแน่น เช่น ช่วงบ่ายที่ Canopy Walkway หรือเรือนกระจกคนจะเยอะเป็นพิเศษ ระบบจะแจ้งเตือนให้บริหารจัดการรอบรถได้อย่างทันท่วงที ขณะเดียวกัน นักท่องเที่ยวสามารถเดินชมพรรณไม้ ถ่ายรูป หรือจิบกาแฟได้อย่างสบายใจ เพราะระบบจะส่ง Push Notification แจ้งเตือนเมื่อรถใกล้ถึงสถานีในระยะ 3 นาทีครับ
         </aside>
       </section>
 
-      <!-- SLIDE 9: Touring Recommendation & Geofences -->
+      <!-- SLIDE 10: Touring Recommendation & Geofences -->
       <section>
         <div class="slide-header">
           <span class="header-badge">Smart Guide</span>
@@ -791,12 +864,12 @@
           </div>
         </div>
         <aside class="notes">
-          สคริปต์พูดหน้าที่ 9 (1.0 นาที):
+          สคริปต์พูดหน้าที่ 10 (1.0 นาที):
           ในข้อกำหนดโครงการ มีระบบให้คำแนะนำตามพิกัด หรือ Geofences Technology ซึ่งตรงนี้ตอบโจทย์การเป็นสวนพฤกษศาสตร์เพื่อการเรียนรู้อย่างแท้จริงครับ เมื่อรถหรือนักท่องเที่ยวเดินเข้าสู่บริเวณจุดสำคัญ เช่น Canopy Walkway หรือเรือนกระจก แอปพลิเคชันจะส่งข้อมูลแนะนำพันธุ์ไม้เด่น และประวัติความเป็นมาขึ้นมาให้อัตโนมัติ เสมือนมีมัคคุเทศก์ส่วนตัวตลอดเส้นทางครับ
         </aside>
       </section>
 
-      <!-- SLIDE 10: Implementation Roadmap -->
+      <!-- SLIDE 11: Implementation Roadmap -->
       <section>
         <div class="slide-header">
           <span class="header-badge">Roadmap</span>
@@ -847,12 +920,12 @@
           </div>
         </div>
         <aside class="notes">
-          สคริปต์พูดหน้าที่ 10 (1.5 นาที):
+          สคริปต์พูดหน้าที่ 11 (1.5 นาที):
           แผนการดำเนินงานตลอด 9 เดือน แบ่งเป็น 3 ระยะอย่างชัดเจนครับ: Phase 1 เน้นสร้างรากฐานระบบ ฐานข้อมูล ตู้ Kiosk และ Driver App Phase 2 พัฒนาระบบเรียลไทม์ Mobile App และระบบจัดคิว Smart Balancing พร้อมทดสอบบนพื้นที่จริง 6 สถานี และ Phase 3 เติมเต็มด้วยระบบแจ้งเตือน Notification, Analytics Dashboard สำหรับผู้บริหาร จัดทำคู่มือ อบรมบุคลากร และส่งมอบรายงานฉบับสมบูรณ์ มั่นใจได้ว่าส่งมอบตรงเวลาแน่นอนครับ
         </aside>
       </section>
 
-      <!-- SLIDE 11: Expected Impacts -->
+      <!-- SLIDE 12: Expected Impacts -->
       <section>
         <div class="slide-header">
           <span class="header-badge">Value Creation</span>
@@ -905,12 +978,12 @@
           </div>
         </div>
         <aside class="notes">
-          สคริปต์พูดหน้าที่ 11 (1.5 นาที):
+          สคริปต์พูดหน้าที่ 12 (1.5 นาที):
           ความคุ้มค่าจะเกิดขึ้นอย่างรอบด้านทั้ง 4 มิติครับ: นักท่องเที่ยวสะดวกสบาย มีข้อมูลเรียลไทม์ เจ้าหน้าที่และคนขับรถทำงานง่ายขึ้น ลดความแออัดหน้างาน ผู้บริหารได้ Dashboard ข้อมูลสถิติเชิงพื้นที่ที่แม่นยำ และที่สำคัญที่สุดคือด้านสิ่งแวดล้อม การเปลี่ยนมาใช้รถ EV 100% ช่วยลดมลพิษ ปกป้องระบบนิเวศของสวนพฤกษศาสตร์ และส่งเสริมภาพลักษณ์ Green Tourism ระดับโลกครับ
         </aside>
       </section>
 
-      <!-- SLIDE 12: Conclusion & Q&A -->
+      <!-- SLIDE 13: Conclusion & Q&A -->
       <section data-background-color="#1b4332">
         <div class="cover-slide" style="align-items: center; text-align: center; justify-content: center; flex-direction: column;">
           <div class="cover-badge"><i class="fa-solid fa-check-circle"></i> SMART & GREEN BOTANICAL GARDEN</div>
@@ -923,7 +996,7 @@
           </div>
         </div>
         <aside class="notes">
-          สคริปต์พูดหน้าที่ 12 (1.0 นาที):
+          สคริปต์พูดหน้าที่ 13 (1.0 นาที):
           โครงการพัฒนาระบบจัดการรถนำเที่ยวไฟฟ้า สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์ จะเป็นการผสานเทคโนโลยีสมัยใหม่เข้ากับธรรมชาติอย่างลงตัว ยกระดับการบริการ การจัดการ และความยั่งยืนในทุกมิติ ทางทีมงานมีความพร้อมที่จะเริ่มดำเนินงานตามแผนงาน Phase 1 ทันทีครับ ผมขอขอบพระคุณคณะกรรมการทุกท่านเป็นอย่างสูง และยินดีรับฟังข้อเสนอแนะรวมถึงตอบข้อซักถามครับ ขอบคุณครับ
         </aside>
       </section>
