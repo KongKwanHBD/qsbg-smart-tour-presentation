@@ -19,7 +19,7 @@
 | **8** | ระบบติดตามรถและสถานีวนลูป (Live Tracking & Loop) | 1.5 นาที | IoT GPS บนรถ 3 คัน ส่งพิกัดทุก 5 วินาที, Geofencing, Dynamic ETA 6 สถานี |
 | **9** | การบริหารจัดการคิวอัจฉริยะ (Smart Queue & Notification) | 1.0 นาที | Smart Queue Balancing + Seat Capacity + Push Notification เตือนล่วงหน้า 3 นาที |
 | **10** | ระบบแนะนำแหล่งท่องเที่ยวตามพิกัด (Geofence Touring Guide) | 1.0 นาที | Virtual Geofence รอบแลนด์มาร์ก Canopy Walkway, เรือนกระจก พร้อม Audio Guide |
-| **11** | แผนการดำเนินงาน 9 เดือน (Project Roadmap) | 1.0 นาที | 3 ระยะ: Phase 1 (Core Foundation), Phase 2 (Realtime), Phase 3 (Advanced Features) |
+| **11** | แผนการดำเนินงานโครงการ (Project Roadmap ..... เดือน) | 1.0 นาที | 3 ระยะ: Phase 1 (Core Foundation), Phase 2 (Realtime), Phase 3 (Advanced Features) |
 | **12** | ประโยชน์ที่คาดว่าจะได้รับ (Impact & Value Creation) | 1.5 นาที | 4 มิติ: นักท่องเที่ยว, เจ้าหน้าที่/คนขับ, ผู้บริหาร, สิ่งแวดล้อม Zero Emission |
 | **13** | บทสรุปและการถาม-ตอบ (Conclusion & Q&A) | 1.0 นาที | ยืนยันความพร้อมเดินหน้า Phase 1 ทันที และเปิดเวทีรับฟังข้อเสนอแนะ |
 
@@ -156,14 +156,14 @@
 
 ---
 
-### สไลด์ที่ 11 : แผนการดำเนินงาน 9 เดือน (Project Roadmap)
+### สไลด์ที่ 11 : แผนการดำเนินงานโครงการ (Project Roadmap ..... เดือน)
 * **เวลา:** 13:00 - 14:00 น. (1.0 นาที)
 * **สคริปต์พูด:**
-> "แผนการดำเนินงานตลอด 9 เดือน ถูกแบ่งเป็น 3 ระยะอย่างชัดเจนครับ:
+> "แผนการดำเนินงานถูกแบ่งเป็น 3 ระยะอย่างชัดเจนครับ (กรอบเวลา ..... เดือน):
 > 
-> * **Phase 1 (เดือน 1-3) Core Foundation:** ออกแบบ Backend API, Database Schema, ตู้ Kiosk, เชื่อมต่อ Payment Gateway และสร้าง Driver App บนแท็บเล็ตให้พร้อมเดินรถ
-> * **Phase 2 (เดือน 4-6) Realtime & Mobile:** ติดตั้ง WebSocket Server สำหรับ Live Tracking, พัฒนา Mobile App เต็มรูปแบบ และทดสอบระบบจัดคิวบนพื้นที่จริง 6 สถานี
-> * **Phase 3 (เดือน 7-9) Advanced Features:** เปิดระบบ Notification, Analytics Dashboard สำหรับผู้บริหาร, เปิดระบบจองออนไลน์ล่วงหน้า จัดอบรมเจ้าหน้าที่ และส่งมอบงานสมบูรณ์ครับ"
+> * **Phase 1 (ระยะที่ 1) Core Foundation:** ออกแบบ Backend API, Database Schema, ตู้ Kiosk, เชื่อมต่อ Payment Gateway และสร้าง Driver App บนแท็บเล็ตให้พร้อมเดินรถ
+> * **Phase 2 (ระยะที่ 2) Realtime & Mobile:** ติดตั้ง WebSocket Server สำหรับ Live Tracking, พัฒนา Mobile App เต็มรูปแบบ และทดสอบระบบจัดคิวบนพื้นที่จริง 6 สถานี
+> * **Phase 3 (ระยะที่ 3) Advanced Features:** เปิดระบบ Notification, Analytics Dashboard สำหรับผู้บริหาร, เปิดระบบจองออนไลน์ล่วงหน้า จัดอบรมเจ้าหน้าที่ และส่งมอบงานสมบูรณ์ครับ"
 
 ---
 
