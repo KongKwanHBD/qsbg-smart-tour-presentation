@@ -1,0 +1,9 @@
+# Raw scrapers and contact sheets
+images/chill_all/
+images/contact_sheet.jpg
+images/gallery.html
+images/qsbg_*.jpg
+
+# Temporary slide folders
+slides_emerald_dark/
+notebook_slides/
